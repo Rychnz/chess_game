@@ -10,5 +10,9 @@ package ChessGame.model;
  * @author Laz Bratton
  */
 public class Rook extends Piece {
+
+    public Rook(boolean alive) {
+        super(alive);
+    }
     
 }

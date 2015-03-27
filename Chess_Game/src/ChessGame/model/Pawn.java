@@ -10,8 +10,10 @@ package ChessGame.model;
  * @author Laz Bratton
  */
 public class Pawn extends Piece {
-    
-    Pawn(){
-        
+
+    public Pawn(boolean alive) {
+        super(alive);
     }
+    
+    
 }

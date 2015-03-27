@@ -10,5 +10,9 @@ package ChessGame.model;
  * @author Laz Bratton
  */
 public class Bishop extends Piece{
+
+    public Bishop(boolean alive) {
+        super(alive);
+    }
     
 }
