@@ -10,5 +10,5 @@ package ChessGame.model;
  * @author Rich
  */
 public class Position {
-    Position() {};
+    
 }

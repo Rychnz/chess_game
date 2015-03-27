@@ -5,6 +5,8 @@
  */
 package ChessGame.model;
 
+import java.awt.Color;
+
 /**
  *
  * @author Laz Bratton
@@ -12,17 +14,20 @@ package ChessGame.model;
 abstract public class Piece {
     private Position position;
     private boolean alive;
-    boolean colour; //True for black, false for white, until we implement GUI
+    Color pieceColour;
+    int [][] possibleMoves;
     
     
     /**
-     * Constructor for Piece class
+     * Constructor for Piece class, creates a new piece with an alive state
      * 
      * @param alive - designates whether a piece is active on the board or not 
      */
-    Piece(boolean alive) {
-        this.alive = alive;
+    Piece() {
+        this.alive = true;
         this.position = null;
+        this.pieceColour = null;
+        possibleMoves = new int[7][7];
     }
     
     /**
@@ -53,7 +58,27 @@ abstract public class Piece {
         return position;
     }
     
+    /**
+     * Sets position of chess piece on board
+     * 
+     * @param position - new position
+     */
     public void setPosition(Position position) {
         this.position = position;
     }
+    /**
+     * Gets the colour of the individual piece
+     * 
+     * @return true if black, false if white 
+     */
+    public boolean isPieceBlack() {
+        return pieceColour == Color.BLACK;
+    }
+    
+    /**
+     *Holds possible moves for each piece
+     * 
+     * @return 2D array of possible moves
+     */
+    //public abstract int[][] movesPossible();
 }
