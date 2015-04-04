@@ -14,6 +14,5 @@ public class Pawn extends Piece {
     public Pawn(boolean alive) {
         super(alive);
     }
-    
-    
+     
 }

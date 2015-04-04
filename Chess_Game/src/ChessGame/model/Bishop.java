@@ -5,14 +5,19 @@
  */
 package ChessGame.model;
 
+import java.awt.Color;
+
 /**
  *
  * @author Laz Bratton
  */
 public class Bishop extends Piece{
+    
 
-    public Bishop(boolean alive) {
-        super(alive);
+    public Bishop(boolean alive, Color pieceColour) {
+        super();
+        this.pieceColour = pieceColour;
+        
     }
     
 }
