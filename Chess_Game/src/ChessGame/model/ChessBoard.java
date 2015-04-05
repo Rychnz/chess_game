@@ -5,6 +5,11 @@
  */
 package ChessGame.model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.LinkedList;
+import java.util.Scanner;
+
 /**
  *
  * @author Rich
@@ -41,4 +46,21 @@ public class ChessBoard {
     {
         return numColumns;
     }
+    
+    /**
+     * Gets a square at a particular position.
+     * 
+     * @param  pos the position of the square
+     * @return the square at this position
+     */
+    public Square getSquare(Position pos)
+    {
+        Square result = null;
+        if ( pos != null )
+        {
+            result = squares[pos.getRow()][pos.getColumn()];
+        }
+        return result;
+    }
+        
 }

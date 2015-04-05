@@ -81,4 +81,11 @@ abstract public class Piece {
      * @return 2D array of possible moves
      */
     //public abstract int[][] movesPossible();
+    
+    /**
+     * Gets a string representation of the occupant.
+     * 
+     * @return the string representation of the occupant
+     */
+    public abstract String getStringRepresentation();
 }
