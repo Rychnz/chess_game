@@ -11,8 +11,12 @@ package ChessGame.model;
  */
 public class King extends Piece {
 
-    public King(boolean alive) {
-        super(alive);
+    public King() {
+        
     }
     
+    @Override
+    public String getStringRepresentation() {
+        return "K";
+    }
 }

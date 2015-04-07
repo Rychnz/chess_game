@@ -11,8 +11,11 @@ package ChessGame.model;
  */
 public class Queen extends Piece{
 
-    public Queen(boolean alive) {
-        super(alive);
+    public Queen() {}
+    
+    @Override
+    public String getStringRepresentation() {
+        return "Q";
     }
     
 }

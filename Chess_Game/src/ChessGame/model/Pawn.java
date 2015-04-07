@@ -11,8 +11,10 @@ package ChessGame.model;
  */
 public class Pawn extends Piece {
 
-    public Pawn(boolean alive) {
-        super(alive);
-    }
+    public Pawn() {}
      
+    @Override
+    public String getStringRepresentation() {
+        return "P";
+    }
 }

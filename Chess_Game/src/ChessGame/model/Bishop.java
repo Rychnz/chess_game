@@ -20,4 +20,8 @@ public class Bishop extends Piece{
         
     }
     
+    @Override
+    public String getStringRepresentation() {
+        return "B";
+    }
 }
