@@ -13,7 +13,7 @@ import java.util.Set;
  */
 public abstract class Square {
     
-    public static final int MAX_PIECES = 32;
+    public static final int MAX_PIECES = 1;
     
     private Position position;
     private Set<Piece> pieces;
@@ -89,7 +89,16 @@ public abstract class Square {
             result += piece.getStringRepresentation();
         }
         return result;
-    } 
+    }
+    
+    /**
+     * Returns whether or not there is currently a piece on a square
+     * 
+     * @return true if square is occupied
+     */ 
+    public boolean isOccupied() {
+        return pieces.size()>0;
+    }
     
     /**
      * Returns the string representation of this square.

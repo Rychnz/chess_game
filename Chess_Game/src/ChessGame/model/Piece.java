@@ -6,6 +6,8 @@
 package ChessGame.model;
 
 import java.awt.Color;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -14,8 +16,8 @@ import java.awt.Color;
 abstract public class Piece {
     private Position position;
     private boolean alive;
-    Color pieceColour;
-    int [][] possibleMoves;
+    private Color pieceColour;
+    private Set<Position> possibleMoves;
     
     
     /**
@@ -27,7 +29,7 @@ abstract public class Piece {
         this.alive = true;
         this.position = null;
         this.pieceColour = null;
-        possibleMoves = new int[7][7];
+        this.possibleMoves = new HashSet<>();
     }
     
     /**
@@ -80,7 +82,7 @@ abstract public class Piece {
      * 
      * @return 2D array of possible moves
      */
-    //public abstract int[][] movesPossible();
+    public abstract HashSet movesPossible();
     
     /**
      * Gets a string representation of the occupant.

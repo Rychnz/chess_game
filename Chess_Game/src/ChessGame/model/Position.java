@@ -66,4 +66,13 @@ public class Position {
     {
        return this.column;
     }
+    
+    /**
+     * Gets the current board
+     * 
+     * @return chessboard
+     */
+    public ChessBoard getBoard() {
+        return chessboard;
+    }
 }

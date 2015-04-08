@@ -5,17 +5,63 @@
  */
 package ChessGame.model;
 
+import java.util.HashSet;
+
 /**
  *
  * @author Laz Bratton
  */
 public class Rook extends Piece {
-
+    
+    private HashSet<Position> possibleMoves;
     public Rook() {}
     
     @Override
     public String getStringRepresentation() {
         return "R";
+    }
+
+    @Override
+    public HashSet movesPossible() {
+        Position pos = getPosition();
+        ChessBoard currentBoard = pos.getBoard();
+        int rowNo = pos.getRow();
+        int colNo = pos.getColumn();
+        for(int i = rowNo + 1; i<currentBoard.getNumRows(); i++) {
+            Position newPos = new Position(currentBoard, i, colNo);
+            if(!currentBoard.getSquare(newPos).isOccupied()) {
+                possibleMoves.add(newPos);
+            }
+            else
+                break;
+        }
+        for(int i = colNo + 1; i<currentBoard.getNumRows(); i++) {
+            Position newPos = new Position(currentBoard, rowNo, i);
+            if(!currentBoard.getSquare(newPos).isOccupied()) {
+                possibleMoves.add(newPos);
+            }
+            else
+                break;
+        }
+        for(int i = rowNo - 1; i>currentBoard.getNumRows(); i--) {
+            Position newPos = new Position(currentBoard, i, colNo);
+            if(!currentBoard.getSquare(newPos).isOccupied()) {
+                possibleMoves.add(newPos);
+            }
+            else
+                break;
+        }
+        for(int i = colNo - 1; i>currentBoard.getNumRows(); i--) {
+            Position newPos = new Position(currentBoard, rowNo, i);
+            if(!currentBoard.getSquare(newPos).isOccupied()) {
+                possibleMoves.add(newPos);
+            }
+            else
+                break;
+        }
+        
+        
+        return possibleMoves;
     }
     
 }
