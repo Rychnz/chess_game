@@ -78,8 +78,12 @@ public class PawnTest {
      */
     @Test
     public void testMovesPossible() {
-        Position newPosition = new Position(board, 2, 2);
-        assertTrue(possibleMoves2.contains(newPosition));
+        Position newPosition = new Position(board, 2, 1);
+        Position[] test = possibleMoves2.toArray(new Position[possibleMoves2.size()]);
+        assertEquals(test[0].getRow(), newPosition.getRow());
+        assertEquals(test[0].getColumn(), newPosition.getColumn());
+        assertEquals(test[0].getBoard(), newPosition.getBoard());
+        //assertTrue(possibleMoves2.contains(newPosition));
         
     }
     

@@ -6,6 +6,7 @@
 package ChessGame.model;
 
 import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -13,9 +14,13 @@ import java.util.HashSet;
  */
 public class King extends Piece {
     
+    ChessBoard board;
     private HashSet<Position> possibleMoves;
-    public King() {
-        
+    
+    public King(ChessBoard currentBoard) {
+        super();
+        possibleMoves = new HashSet<>();
+        board = currentBoard;
     }
     
     @Override
@@ -24,24 +29,31 @@ public class King extends Piece {
     }
 
     @Override
-    public HashSet movesPossible() {
+    public Set movesPossible() {
         Position pos = getPosition();
-        ChessBoard currentBoard = pos.getBoard();
+        //ChessBoard currentBoard = pos.getBoard();
         int rowNo = pos.getRow();
         int colNo = pos.getColumn();
         
-        Position northPosition = new Position(currentBoard, rowNo + 1, colNo);
-        Position southPosition = new Position(currentBoard, rowNo - 1, colNo);
-        Position eastPosition = new Position(currentBoard, rowNo, colNo + 1);
-        Position westPosition = new Position(currentBoard, rowNo, colNo - 1);
-        if(!currentBoard.getSquare(northPosition).isOccupied())
+        Position northPosition = new Position(board, (rowNo + 1), colNo);
+        //if(!currentBoard.getSquare(northPosition).isOccupied())
             possibleMoves.add(northPosition);
-        if(!currentBoard.getSquare(southPosition).isOccupied())
-            possibleMoves.add(southPosition);
-        if(!currentBoard.getSquare(eastPosition).isOccupied())
-            possibleMoves.add(eastPosition);
-        if(!currentBoard.getSquare(westPosition).isOccupied())
-            possibleMoves.add(westPosition);
+        
+//        Position southPosition = new Position(board, rowNo - 1, colNo);
+//        //if(!currentBoard.getSquare(southPosition).isOccupied())
+//            possibleMoves.add(southPosition);
+//        
+//        Position eastPosition = new Position(board, rowNo, colNo + 1);
+//        //if(!currentBoard.getSquare(eastPosition).isOccupied())
+//            possibleMoves.add(eastPosition);
+//        
+//        Position westPosition = new Position(board, rowNo, colNo - 1);
+//        //if(!currentBoard.getSquare(westPosition).isOccupied())
+//            possibleMoves.add(westPosition);
+//        
+        
+        
+        
         
         return possibleMoves;
             

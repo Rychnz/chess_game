@@ -14,9 +14,13 @@ import java.util.Set;
  */
 public class Pawn extends Piece {
     
+    Set<Position> moves;
+
     
     public Pawn() {
         super();
+
+        moves = new HashSet<>();
     }
      
     @Override
@@ -26,13 +30,12 @@ public class Pawn extends Piece {
 
     @Override
     public Set movesPossible() {
-        Set<Position> moves = new HashSet<>();
         Position pos = getPosition();
         if(pos == null)
             throw new IllegalArgumentException("Position can't be null");
         int rowNo = pos.getRow();
         int colNo = pos.getColumn();
-        Position forward = new Position(pos.getBoard(), 2, 2);
+        Position forward = new Position(pos.getBoard(), rowNo + 1, colNo);
         moves.add(forward);
         return moves;
     }
