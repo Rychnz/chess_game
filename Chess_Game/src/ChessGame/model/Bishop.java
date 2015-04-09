@@ -6,6 +6,7 @@
 package ChessGame.model;
 
 import java.awt.Color;
+import java.util.HashSet;
 
 /**
  *
@@ -16,12 +17,17 @@ public class Bishop extends Piece{
 
     public Bishop(boolean alive, Color pieceColour) {
         super();
-        this.pieceColour = pieceColour;
+        
         
     }
     
     @Override
     public String getStringRepresentation() {
         return "B";
+    }
+
+    @Override
+    public HashSet movesPossible() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

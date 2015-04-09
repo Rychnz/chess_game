@@ -73,6 +73,6 @@ public class Position {
      * @return chessboard
      */
     public ChessBoard getBoard() {
-        return chessboard;
+        return this.chessboard;
     }
 }

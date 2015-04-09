@@ -5,6 +5,8 @@
  */
 package ChessGame.model;
 
+import java.util.HashSet;
+
 /**
  *
  * @author Laz Bratton
@@ -18,5 +20,10 @@ public class Knight extends Piece{
     @Override
     public String getStringRepresentation() {
         return "KN";
+    }
+
+    @Override
+    public HashSet movesPossible() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

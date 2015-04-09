@@ -82,7 +82,7 @@ abstract public class Piece {
      * 
      * @return 2D array of possible moves
      */
-    public abstract HashSet movesPossible();
+    public abstract Set movesPossible();
     
     /**
      * Gets a string representation of the occupant.

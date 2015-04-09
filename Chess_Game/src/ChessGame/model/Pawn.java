@@ -6,6 +6,7 @@
 package ChessGame.model;
 
 import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -13,8 +14,10 @@ import java.util.HashSet;
  */
 public class Pawn extends Piece {
     
-    private HashSet<Position> possibleMoves;
-    public Pawn() {}
+    
+    public Pawn() {
+        super();
+    }
      
     @Override
     public String getStringRepresentation() {
@@ -22,12 +25,15 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public HashSet movesPossible() {
+    public Set movesPossible() {
+        Set<Position> moves = new HashSet<>();
         Position pos = getPosition();
+        if(pos == null)
+            throw new IllegalArgumentException("Position can't be null");
         int rowNo = pos.getRow();
         int colNo = pos.getColumn();
-        Position possiblePosition = new Position(pos.getBoard(), (rowNo + 1), colNo);
-        possibleMoves.add(possiblePosition);
-        return possibleMoves;
+        Position forward = new Position(pos.getBoard(), 2, 2);
+        moves.add(forward);
+        return moves;
     }
 }

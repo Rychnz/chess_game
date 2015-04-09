@@ -5,6 +5,8 @@
  */
 package ChessGame.model;
 
+import java.util.HashSet;
+
 /**
  *
  * @author Laz Bratton
@@ -16,6 +18,11 @@ public class Queen extends Piece{
     @Override
     public String getStringRepresentation() {
         return "Q";
+    }
+
+    @Override
+    public HashSet movesPossible() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
