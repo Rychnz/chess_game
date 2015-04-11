@@ -9,7 +9,8 @@ import java.util.Set;
 
 /**
  *
- * @author Rich
+ * @author Richard Johnston ID 0795795
+ * @version 1.0 - 2015.04: Created
  */
 public abstract class Square {
     
@@ -98,6 +99,19 @@ public abstract class Square {
      */ 
     public boolean isOccupied() {
         return pieces.size()>0;
+    }
+    
+    /**
+     * Checks if this square contains a specific piece.
+     * 
+     * @param piece the piece to check for 
+     * 
+     * @return <code>true</code> if the square contains the specific piece,
+     *         <code>false</code> if not
+     */
+    public boolean hasPiece(Piece piece) 
+    {
+        return pieces.contains(piece);
     }
     
     /**
