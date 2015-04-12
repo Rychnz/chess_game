@@ -62,5 +62,59 @@ public class ChessBoard {
         }
         return result;
     }
+    
+    /**
+     * Produces a textual representation of MineWorld on the console.
+     * This exists mainly for debugging purposes.
+     */
+    public void draw() 
+    {
+        System.out.println(getStringRepresentation());
+    }
+    
+    /**
+     * Returns a string with the mine world, e.g., for printing.
+     * 
+     * @return a string that represents the mine world
+     */
+    public String getStringRepresentation()
+    {
+        String output = "";
+        final int CELL_SIZE = 3;
+        
+        // create the horizontal line as a string
+        String horizontalLine = "-";
+        for ( int col = 0; col < numColumns; col++ )
+        {
+            for ( int i = 0 ; i < CELL_SIZE ; i++ )
+            {
+                horizontalLine += "-";
+            }            
+            horizontalLine += "-";
+        }
+        
+        // print the content
+        for ( int row = 0; row < numRows; row++ ) 
+        { 
+            String rowOccupant = "|";
+            for ( int col = 0; col < numColumns; col++ ) 
+            {
+                Square s = squares[row][col];
+                // create string with occupant
+                String cellOccupant = " " + s.getPieceStringRepresentation();
+                // pad the output with spaces to a specific size
+                for ( int i = cellOccupant.length() ; i < CELL_SIZE ; i++ )
+                {
+                    cellOccupant += " ";
+                }
+                rowOccupant += cellOccupant + "|";
+            }
+            output += horizontalLine + "\n";
+            output += rowOccupant + "\n";
+        }
+        output += horizontalLine;
+        
+        return output;
+    }
         
 }

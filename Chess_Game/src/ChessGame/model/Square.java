@@ -100,7 +100,7 @@ public abstract class Square {
     public boolean isOccupied() {
         return pieces.size()>0;
     }
-    
+  
     /**
      * Checks if this square contains a specific piece.
      * 
@@ -115,9 +115,28 @@ public abstract class Square {
     }
     
     /**
+     * Gets the string representation of the pieces in this square for printing.
+     * 
+     * @return the string representation of the piece
+     */
+    public String getOccupantStringRepresentation()
+    {
+        String ret = "";
+        if ( isOccupied() )
+        {
+            for ( Piece piece : pieces )
+                {
+                    ret += piece.getStringRepresentation();
+                }
+        } 
+        return ret;
+    }
+    
+    /**
      * Returns the string representation of this square.
      * 
      * @return the string representation of this square
      */
     public abstract String getStringRepresentation();
+       
 }
