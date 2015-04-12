@@ -12,7 +12,8 @@ import java.util.Scanner;
 
 /**
  *
- * @author Rich
+ * @author Richard Johnston ID 0795795
+ * @version 1.0 - 2015.04: Created
  */
 public class ChessBoard {
     
@@ -24,7 +25,11 @@ public class ChessBoard {
         
         this.numRows    = numRows;
         this.numColumns = numColumns;
-        //buildChessBoard();
+        
+        squares = new Square[this.numRows][this.numColumns];
+        initialiseChessBoard();
+        draw();
+        
     }
     
     /**
@@ -66,7 +71,7 @@ public class ChessBoard {
     /**
      * Produces a textual representation of ChessBoard on the console.
      */
-    public void draw() 
+    private void draw() 
     {
         System.out.println(getStringRepresentation());
     }
@@ -115,5 +120,26 @@ public class ChessBoard {
         
         return output;
     }
-        
+    
+    /**
+     * Creates and populates the galaxy grid with empty space.
+     */
+    private void initialiseChessBoard() 
+    {
+        squares = new Square[numRows][numColumns];
+        for (int row = 0; row < this.numRows; row++) 
+        {
+            for (int column = 0; column < this.numColumns; column++) 
+            {
+                Square square = new Square(new Position(this, row, column)) {
+
+                    @Override
+                    public String getStringRepresentation() {
+                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                    }
+                };
+                squares[row][column] = square;
+            }
+        }
+    }
 }
