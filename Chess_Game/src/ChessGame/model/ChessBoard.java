@@ -64,8 +64,7 @@ public class ChessBoard {
     }
     
     /**
-     * Produces a textual representation of MineWorld on the console.
-     * This exists mainly for debugging purposes.
+     * Produces a textual representation of ChessBoard on the console.
      */
     public void draw() 
     {
@@ -73,9 +72,9 @@ public class ChessBoard {
     }
     
     /**
-     * Returns a string with the mine world, e.g., for printing.
+     * Returns a string with the chessboard pieces, e.g., for printing.
      * 
-     * @return a string that represents the mine world
+     * @return a string that represents the ChessBoard
      */
     public String getStringRepresentation()
     {
@@ -100,7 +99,7 @@ public class ChessBoard {
             for ( int col = 0; col < numColumns; col++ ) 
             {
                 Square s = squares[row][col];
-                // create string with occupant
+                // create string with piece
                 String cellOccupant = " " + s.getPieceStringRepresentation();
                 // pad the output with spaces to a specific size
                 for ( int i = cellOccupant.length() ; i < CELL_SIZE ; i++ )
