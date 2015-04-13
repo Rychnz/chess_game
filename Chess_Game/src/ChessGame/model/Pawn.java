@@ -30,6 +30,7 @@ public class Pawn extends Piece {
 
     @Override
     public Set movesPossible() {
+        moves.clear();
         Position pos = getPosition();
         if(pos == null)
             throw new IllegalArgumentException("Position can't be null");

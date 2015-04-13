@@ -5,7 +5,6 @@
  */
 package ChessGame.model;
 
-import java.awt.Color;
 import java.util.HashSet;
 
 /**
@@ -14,10 +13,9 @@ import java.util.HashSet;
  */
 public class Bishop extends Piece{
     
-
-    public Bishop(boolean alive, Color pieceColour) {
-        super();
-        
+    private HashSet<Position> possibleMoves;
+    public Bishop() {
+        possibleMoves = new HashSet<>();
         
     }
     
@@ -28,6 +26,52 @@ public class Bishop extends Piece{
 
     @Override
     public HashSet movesPossible() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        possibleMoves.clear();
+        Position pos = getPosition();
+        ChessBoard currentBoard = pos.getBoard();
+        int rowNo = pos.getRow();
+        int colNo = pos.getColumn();
+        for(int i = rowNo + 1; i<currentBoard.getNumRows(); i++) {
+            int rowAddition = 1;
+            int colAddition = 1;
+            Position newPos = new Position(currentBoard, rowAddition, colAddition);
+            rowAddition++;
+            colAddition++;
+            if(!currentBoard.getSquare(newPos).isOccupied()) {
+                possibleMoves.add(newPos);
+            }
+        }
+        for(int i = rowNo + 1; i<currentBoard.getNumRows(); i++) {
+            int rowAddition = 1;
+            int colAddition = -1;
+            Position newPos = new Position(currentBoard, rowAddition, colAddition);
+            rowAddition++;
+            colAddition--;
+            if(!currentBoard.getSquare(newPos).isOccupied()) {
+                possibleMoves.add(newPos);
+            }
+        }
+            
+        for(int i = rowNo + 1; i<currentBoard.getNumRows(); i++) {
+            int rowAddition = -1;
+            int colAddition = -1;
+            Position newPos = new Position(currentBoard, rowAddition, colAddition);
+            rowAddition--;
+            colAddition--;
+            if(!currentBoard.getSquare(newPos).isOccupied()) {
+                possibleMoves.add(newPos);
+            }
+    }
+        for(int i = rowNo + 1; i<currentBoard.getNumRows(); i++) {
+            int rowAddition = -1;
+            int colAddition = 1;
+            Position newPos = new Position(currentBoard, rowAddition, colAddition);
+            rowAddition--;
+            colAddition++;
+            if(!currentBoard.getSquare(newPos).isOccupied()) {
+                possibleMoves.add(newPos);
+            }
+    }
+        return possibleMoves;
     }
 }

@@ -30,27 +30,28 @@ public class King extends Piece {
 
     @Override
     public Set movesPossible() {
+        possibleMoves.clear();
         Position pos = getPosition();
-        //ChessBoard currentBoard = pos.getBoard();
+        ChessBoard currentBoard = pos.getBoard();
         int rowNo = pos.getRow();
         int colNo = pos.getColumn();
         
         Position northPosition = new Position(board, (rowNo + 1), colNo);
-        //if(!currentBoard.getSquare(northPosition).isOccupied())
+        if(!currentBoard.getSquare(northPosition).isOccupied())
             possibleMoves.add(northPosition);
         
-//        Position southPosition = new Position(board, rowNo - 1, colNo);
-//        //if(!currentBoard.getSquare(southPosition).isOccupied())
-//            possibleMoves.add(southPosition);
-//        
-//        Position eastPosition = new Position(board, rowNo, colNo + 1);
-//        //if(!currentBoard.getSquare(eastPosition).isOccupied())
-//            possibleMoves.add(eastPosition);
-//        
-//        Position westPosition = new Position(board, rowNo, colNo - 1);
-//        //if(!currentBoard.getSquare(westPosition).isOccupied())
-//            possibleMoves.add(westPosition);
-//        
+        Position southPosition = new Position(board, rowNo - 1, colNo);
+        if(!currentBoard.getSquare(southPosition).isOccupied())
+            possibleMoves.add(southPosition);
+        
+        Position eastPosition = new Position(board, rowNo, colNo + 1);
+        if(!currentBoard.getSquare(eastPosition).isOccupied())
+            possibleMoves.add(eastPosition);
+        
+        Position westPosition = new Position(board, rowNo, colNo - 1);
+        if(!currentBoard.getSquare(westPosition).isOccupied())
+            possibleMoves.add(westPosition);
+        
         
         
         
