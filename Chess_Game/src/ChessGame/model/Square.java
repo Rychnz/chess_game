@@ -17,7 +17,7 @@ public abstract class Square {
     public static final int MAX_PIECES = 1;
     
     private Position position;
-    private Set<Piece> pieces;
+    private Piece piece;
     
     public Square(Position position) {
         
@@ -34,84 +34,62 @@ public abstract class Square {
     }
     
     /**
-     * Adds a piece to the square if the piece is not already there
+     * Adds a piece to a square.
      * 
-     * @param piece the chess piece to add
-     * @return <code>true</code> if piece was successfully added,
-     *         <code>false</code> if not
+     * @param newPiece the new piece
+     * @return true if piece was added, false if not
      */
-    public boolean addPiece(Piece piece) 
+    public boolean addPiece(Piece newPiece)
     {
         boolean success = false;
-        if ( (piece != null) && (pieces.size() < MAX_PIECES) ) 
+        if ( (newPiece != null) && !isOccupied() ) 
         {
-            success = pieces.add(piece);
-            if ( success )
-            {
-                // occupant has been added -> update the occupant's position
-                piece.setPosition(position);
-            }
+            piece = newPiece;
+            success  = true;
         }
         return success;
+    }
+    
+    /**
+     * Removes a piece.
+     * 
+     * @return the old piece
+     */
+    public Piece removePiece()
+    {
+        Piece temp = piece;
+        piece = null;
+        return temp;
+    }
+    
+    /**
+     * Gets the current piece in square.
+     * 
+     * @return the current piece
+     */
+    public Piece getPiece()
+    {
+        return piece;
     }
 
-    /**
-     * Removes an occupant from the sector.
-     * 
-     * @param piece the piece to be removed
-     * @return <code>true</code> if the piece was removed,
-     *         <code>false</code> if the piece was not in the sector
-     */
-    public boolean removePiece(Piece piece)
-    {
-        boolean success = false;
-        if ( piece != null )
-        {
-            success = pieces.remove(piece);
-            if ( success )
-            {
-                // now the occupant doesn't have a position
-                piece.setPosition(null);
-            }
-        }
-        return success;
-    }
-    
-    /**
-     * Returns a string representation of the occupants.
-     * 
-     * @return string that combines strings for all occupants
-     */
-    public String getPieceStringRepresentation()
-    {
-        String result = "";
-        for(Piece piece : pieces)
-        {
-            result += piece.getStringRepresentation();
-        }
-        return result;
-    }
-    
     /**
      * Returns whether or not there is currently a piece on a square
      * 
      * @return true if square is occupied
      */ 
     public boolean isOccupied() {
-        return pieces.size()>0;
+        return piece != null;
     }
   
     /**
      * Checks if this square contains a specific piece.
      * 
-     * @param piece the piece to check for 
-     * 
-     * @return <code>true</code> if the square contains the specific piece,
-     *         <code>false</code> if not
+     * @param p the piece to check for 
+     * @return true if the square contains the specific piece, else false
      */
-    public boolean hasPiece(Piece piece) 
+    public boolean hasPiece(Piece p) 
     {
-        return pieces.contains(piece);
+        return piece == p;
     }
     
     /**
@@ -119,17 +97,14 @@ public abstract class Square {
      * 
      * @return the string representation of the piece
      */
-    public String getOccupantStringRepresentation()
+    public String getPieceStringRepresentation()
     {
-        String ret = "";
+        String result = "";
         if ( isOccupied() )
         {
-            for ( Piece piece : pieces )
-                {
-                    ret += piece.getStringRepresentation();
-                }
+            result = piece.getStringRepresentation();
         } 
-        return ret;
+        return result;
     }
     
     /**
@@ -138,5 +113,4 @@ public abstract class Square {
      * @return the string representation of this square
      */
     public abstract String getStringRepresentation();
-       
 }

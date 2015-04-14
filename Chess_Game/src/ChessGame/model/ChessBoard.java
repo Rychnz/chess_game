@@ -17,8 +17,9 @@ import java.util.Scanner;
  */
 public class ChessBoard {
     
-    private int         numRows;
-    private int         numColumns;
+    //Set ChessBoard size to 8x8
+    private int         numRows = 8;
+    private int         numColumns = 8;
     private Square [][] squares;
     
     public ChessBoard(int numRows, int numColumns) {
@@ -27,9 +28,8 @@ public class ChessBoard {
         this.numColumns = numColumns;
         
         squares = new Square[this.numRows][this.numColumns];
-        initialiseChessBoard();
+        buildChessBoard();
         draw();
-        
     }
     
     /**
@@ -37,8 +37,7 @@ public class ChessBoard {
      * 
      * @return the number of rows of this galaxy
      */
-    public int getNumRows()
-    {
+    public int getNumRows(){
         return numRows;
     }
 
@@ -47,13 +46,12 @@ public class ChessBoard {
      * 
      * @return the number of columns
      */
-    public int getNumColumns() 
-    {
+    public int getNumColumns(){
         return numColumns;
     }
     
     /**
-     * Gets a square at a particular position.
+     * Gets a square at a particular ChessBoard position.
      * 
      * @param  pos the position of the square
      * @return the square at this position
@@ -69,15 +67,14 @@ public class ChessBoard {
     }
     
     /**
-     * Produces a textual representation of ChessBoard on the console.
+     * Creates a console text representation of the ChessBoard.
      */
-    private void draw() 
-    {
+    private void draw(){
         System.out.println(getStringRepresentation());
     }
     
     /**
-     * Returns a string with the chessboard pieces, e.g., for printing.
+     * Returns a string with the chessboard pieces for printing to console purposes.
      * 
      * @return a string that represents the ChessBoard
      */
@@ -122,9 +119,9 @@ public class ChessBoard {
     }
     
     /**
-     * Creates and populates the galaxy grid with empty space.
+     * Builds the ChesssBoard for game play.
      */
-    private void initialiseChessBoard() 
+    private void buildChessBoard() 
     {
         squares = new Square[numRows][numColumns];
         for (int row = 0; row < this.numRows; row++) 

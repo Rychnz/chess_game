@@ -19,7 +19,7 @@ public class Position {
     /**
      * Constructor for the objects of the position class.
      * 
-     * @param chessboard the chessboard which the position is referring to
+     * @param chessboard the chessboard square which the position is referring to
      * @param row the row value of the chessboard
      * @param column the column value of the chessboard
      */
@@ -41,34 +41,32 @@ public class Position {
                     "Invalid column for position (" + column + ")");
         }
         
-        // parameters are valid -> save
+        // Valid parameters are saved
         this.chessboard = chessboard;
         this.row    = row;
         this.column = column;
     };
     
     /**
-     * Gets the row number of the position.
+     * Gets the row number of the square position.
      * 
      * @return the row number
      */
-    public int getRow()
-    {
+    public int getRow(){
        return this.row;
     }
     
     /**
-     * Gets the column number of the position.
+     * Gets the column number of the square position.
      * 
      * @return the column number
      */
-    public int getColumn()
-    {
+    public int getColumn(){
        return this.column;
     }
     
     /**
-     * Gets the current board
+     * Gets the current ChessBoard object.
      * 
      * @return chessboard
      */
