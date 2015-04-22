@@ -51,4 +51,8 @@ public class GameBuilder {
             
     }
     
+    public ChessBoard getChessBoard() {
+        return newBoard;
+    }
+    
 }

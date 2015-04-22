@@ -5,6 +5,8 @@
  */
 package ChessGame.model;
 
+import java.util.Set;
+
 /**
  *
  * @author Richard Johnston ID 0795795
@@ -216,8 +218,20 @@ public class ChessBoard {
         getSquare(pos16).addPiece(queen2);
     }
     
-    public boolean movePiece(Square square) {
+    public boolean movePiece(Square fromSquare, Square toSquare, Piece piece) {
         boolean success = false;
+        Set<Square> moves = piece.movesPossible();
+        if(fromSquare.hasPiece(piece) && moves.contains(toSquare)) {
+            piece.setPosition(toSquare.getPosition());
+            fromSquare.removePiece();
+            toSquare.addPiece(piece);
+            success = true;
+        }
+        else {
+            System.out.println("Square does not contain this piece!");
+            return success;
+        }
+        draw();
         return success;
     }
 }

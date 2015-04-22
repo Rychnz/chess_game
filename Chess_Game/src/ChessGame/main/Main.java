@@ -3,6 +3,7 @@ package ChessGame.main;
 import ChessGame.model.ChessBoard;
 import ChessGame.model.GameBuilder;
 import ChessGame.model.Player;
+import ChessGame.model.Position;
 import java.util.Scanner;
 
 /*
@@ -28,6 +29,6 @@ public class Main {
         String name = lineRead.next();
         Player player = new Player("name");
         GameBuilder game = new GameBuilder(player);
-           
+        
     }
 }
