@@ -17,10 +17,9 @@ public class King extends Piece {
     ChessBoard board;
     private HashSet<Position> possibleMoves;
     
-    public King(ChessBoard currentBoard) {
+    public King() {
         super();
         possibleMoves = new HashSet<>();
-        board = currentBoard;
     }
     
     @Override

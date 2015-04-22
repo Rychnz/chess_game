@@ -1,6 +1,8 @@
 package ChessGame.main;
 
 import ChessGame.model.ChessBoard;
+import ChessGame.model.GameBuilder;
+import ChessGame.model.Player;
 import java.util.Scanner;
 
 /*
@@ -14,12 +16,18 @@ import java.util.Scanner;
  * @author Rich
  */
 public class Main {
-    Scanner lineRead = new Scanner(System.in);
+    
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //ChessBoard chessboard = new ChessBoard();
+        Scanner lineRead = new Scanner(System.in);
+        
+        System.out.println("Welcome to Chess! Please enter your name:");
+        String name = lineRead.next();
+        Player player = new Player("name");
+        GameBuilder game = new GameBuilder(player);
+           
     }
-    
 }

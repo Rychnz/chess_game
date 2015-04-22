@@ -29,6 +29,8 @@ public class ChessBoard {
         
         squares = new Square[numRows][numColumns];
         buildChessBoard();
+        placePieces();
+        
         draw();
     }
     
@@ -138,5 +140,79 @@ public class ChessBoard {
                 squares[row][column] = square;
             }
         }
+    }
+    
+    private void placePieces() {
+        for(int i = 0; i < 8; i++) {
+            Piece pawn = new Pawn();
+            Position pos = new Position(this, 1, i);
+            getSquare(pos).addPiece(pawn);
+        }
+        for(int i = 0; i < 8; i++) {
+            Piece pawn = new Pawn();
+            Position pos = new Position(this, 6, i);
+            getSquare(pos).addPiece(pawn);
+        }
+        
+        Piece rook = new Rook();
+        Position pos = new Position(this, 0, 0);
+        getSquare(pos).addPiece(rook);
+        
+        Piece rook3 = new Rook();
+        Position pos3 = new Position(this, 7, 0);
+        getSquare(pos3).addPiece(rook);
+        
+        Piece rook4 = new Rook();
+        Position pos4 = new Position(this, 0, 7);
+        getSquare(pos4).addPiece(rook);
+        
+        Piece rook2 = new Rook();
+        Position pos1 = new Position(this, 7, 7);
+        getSquare(pos1).addPiece(rook2);
+        
+        Piece knight = new Knight();
+        Position pos5 = new Position(this, 0, 1);
+        getSquare(pos5).addPiece(knight);
+        
+        Piece knight2 = new Knight();
+        Position pos6 = new Position(this, 0, 6);
+        getSquare(pos6).addPiece(knight);
+        
+        Piece knight3 = new Knight();
+        Position pos7 = new Position(this, 7, 1);
+        getSquare(pos7).addPiece(knight);
+        
+        Piece knight4 = new Knight();
+        Position pos8 = new Position(this, 7, 6);
+        getSquare(pos8).addPiece(knight);
+        
+        Piece bishop = new Bishop();
+        Position pos9 = new Position(this, 0, 2);
+        getSquare(pos9).addPiece(bishop);
+
+        Position pos10 = new Position(this, 0, 5);
+        getSquare(pos10).addPiece(bishop);
+
+        Position pos11 = new Position(this, 7, 2);
+        getSquare(pos11).addPiece(bishop);
+
+        Position pos12 = new Position(this, 7, 5);
+        getSquare(pos12).addPiece(bishop);
+        
+        Piece king = new King();
+        Position pos13 = new Position(this, 0, 3);
+        getSquare(pos13).addPiece(king);
+        
+        Piece queen = new Queen();
+        Position pos14 = new Position(this, 0, 4);
+        getSquare(pos14).addPiece(queen);
+        
+        Piece king2 = new King();
+        Position pos15 = new Position(this, 7, 4);
+        getSquare(pos15).addPiece(king2);
+        
+        Piece queen2 = new Queen();
+        Position pos16 = new Position(this, 7, 3);
+        getSquare(pos16).addPiece(queen2);
     }
 }
