@@ -13,7 +13,7 @@ import java.util.HashSet;
  */
 public class Rook extends Piece {
     
-    private HashSet<Position> possibleMoves;
+    private HashSet<Square> possibleMoves;
     public Rook() {}
     
     @Override
@@ -30,7 +30,7 @@ public class Rook extends Piece {
         for(int i = rowNo + 1; i<currentBoard.getNumRows(); i++) {
             Position newPos = new Position(currentBoard, i, colNo);
             if(!currentBoard.getSquare(newPos).isOccupied()) {
-                possibleMoves.add(newPos);
+                possibleMoves.add(currentBoard.getSquare(newPos));
             }
             else
                 break;
@@ -38,7 +38,7 @@ public class Rook extends Piece {
         for(int i = colNo + 1; i<currentBoard.getNumRows(); i++) {
             Position newPos = new Position(currentBoard, rowNo, i);
             if(!currentBoard.getSquare(newPos).isOccupied()) {
-                possibleMoves.add(newPos);
+                possibleMoves.add(currentBoard.getSquare(newPos));
             }
             else
                 break;
@@ -46,7 +46,7 @@ public class Rook extends Piece {
         for(int i = rowNo - 1; i>currentBoard.getNumRows(); i--) {
             Position newPos = new Position(currentBoard, i, colNo);
             if(!currentBoard.getSquare(newPos).isOccupied()) {
-                possibleMoves.add(newPos);
+                possibleMoves.add(currentBoard.getSquare(newPos));
             }
             else
                 break;
@@ -54,7 +54,7 @@ public class Rook extends Piece {
         for(int i = colNo - 1; i>currentBoard.getNumRows(); i--) {
             Position newPos = new Position(currentBoard, rowNo, i);
             if(!currentBoard.getSquare(newPos).isOccupied()) {
-                possibleMoves.add(newPos);
+                possibleMoves.add(currentBoard.getSquare(newPos));
             }
             else
                 break;

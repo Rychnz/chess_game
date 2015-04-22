@@ -13,7 +13,7 @@ import java.util.HashSet;
  */
 public class Queen extends Piece{
 
-    private HashSet<Position> possibleMoves;
+    private HashSet<Square> possibleMoves;
     public Queen() {
         possibleMoves = new HashSet<>();
     }
@@ -38,7 +38,7 @@ public class Queen extends Piece{
             rowAddition++;
             colAddition++;
             if(!currentBoard.getSquare(newPos).isOccupied()) {
-                possibleMoves.add(newPos);
+                possibleMoves.add(currentBoard.getSquare(newPos));
             }
         }
         for(int i = rowNo + 1; i<currentBoard.getNumRows(); i++) {
@@ -48,7 +48,7 @@ public class Queen extends Piece{
             rowAddition++;
             colAddition--;
             if(!currentBoard.getSquare(newPos).isOccupied()) {
-                possibleMoves.add(newPos);
+                possibleMoves.add(currentBoard.getSquare(newPos));
             }
         }
             
@@ -59,7 +59,7 @@ public class Queen extends Piece{
             rowAddition--;
             colAddition--;
             if(!currentBoard.getSquare(newPos).isOccupied()) {
-                possibleMoves.add(newPos);
+                possibleMoves.add(currentBoard.getSquare(newPos));
             }
         }
         for(int i = rowNo + 1; i<currentBoard.getNumRows(); i++) {
@@ -69,13 +69,13 @@ public class Queen extends Piece{
             rowAddition--;
             colAddition++;
             if(!currentBoard.getSquare(newPos).isOccupied()) {
-                possibleMoves.add(newPos);
+                possibleMoves.add(currentBoard.getSquare(newPos));
             }
         }
         for(int i = rowNo + 1; i<currentBoard.getNumRows(); i++) {
             Position newPos = new Position(currentBoard, i, colNo);
             if(!currentBoard.getSquare(newPos).isOccupied()) {
-                possibleMoves.add(newPos);
+                possibleMoves.add(currentBoard.getSquare(newPos));
             }
             else
                 break;
@@ -83,7 +83,7 @@ public class Queen extends Piece{
         for(int i = colNo + 1; i<currentBoard.getNumRows(); i++) {
             Position newPos = new Position(currentBoard, rowNo, i);
             if(!currentBoard.getSquare(newPos).isOccupied()) {
-                possibleMoves.add(newPos);
+                possibleMoves.add(currentBoard.getSquare(newPos));
             }
             else
                 break;
@@ -91,7 +91,7 @@ public class Queen extends Piece{
         for(int i = rowNo - 1; i>currentBoard.getNumRows(); i--) {
             Position newPos = new Position(currentBoard, i, colNo);
             if(!currentBoard.getSquare(newPos).isOccupied()) {
-                possibleMoves.add(newPos);
+                possibleMoves.add(currentBoard.getSquare(newPos));
             }
             else
                 break;
@@ -99,7 +99,7 @@ public class Queen extends Piece{
         for(int i = colNo - 1; i>currentBoard.getNumRows(); i--) {
             Position newPos = new Position(currentBoard, rowNo, i);
             if(!currentBoard.getSquare(newPos).isOccupied()) {
-                possibleMoves.add(newPos);
+                possibleMoves.add(currentBoard.getSquare(newPos));
             }
             else
                 break;

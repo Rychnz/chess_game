@@ -13,7 +13,7 @@ import java.util.HashSet;
  */
 public class Knight extends Piece{
     
-    private HashSet<Position> possibleMoves;
+    private HashSet<Square> possibleMoves;
     public Knight() {
         possibleMoves = new HashSet<>();
     }
@@ -31,21 +31,21 @@ public class Knight extends Piece{
         int rowNo = pos.getRow();
         int colNo = pos.getColumn();
         Position moveOne = new Position(currentBoard, rowNo + 2, colNo + 1);
-        possibleMoves.add(moveOne);
+        possibleMoves.add(currentBoard.getSquare(moveOne));
         Position moveTwo = new Position(currentBoard, rowNo + 2, colNo - 1);
-        possibleMoves.add(moveTwo);
+        possibleMoves.add(currentBoard.getSquare(moveTwo));
         Position moveThree = new Position(currentBoard, rowNo + 1, colNo + 2);
-        possibleMoves.add(moveThree);
+        possibleMoves.add(currentBoard.getSquare(moveThree));
         Position moveFour = new Position(currentBoard, rowNo + 1, colNo - 2);
-        possibleMoves.add(moveFour);
+        possibleMoves.add(currentBoard.getSquare(moveFour));
         Position moveFive = new Position(currentBoard, rowNo - 1, colNo + 2);
-        possibleMoves.add(moveFive);
+        possibleMoves.add(currentBoard.getSquare(moveFive));
         Position moveSix = new Position(currentBoard, rowNo - 1, colNo - 2);
-        possibleMoves.add(moveSix);
+        possibleMoves.add(currentBoard.getSquare(moveSix));
         Position moveSeven = new Position(currentBoard, rowNo - 2, colNo + 1);
-        possibleMoves.add(moveSeven);
+        possibleMoves.add(currentBoard.getSquare(moveSeven));
         Position moveEight = new Position(currentBoard, rowNo - 2, colNo - 1);
-        possibleMoves.add(moveEight);
+        possibleMoves.add(currentBoard.getSquare(moveEight));
         
         return possibleMoves;
     }

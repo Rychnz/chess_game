@@ -13,7 +13,7 @@ import java.util.HashSet;
  */
 public class Bishop extends Piece{
     
-    private HashSet<Position> possibleMoves;
+    private HashSet<Square> possibleMoves;
     public Bishop() {
         possibleMoves = new HashSet<>();
         
@@ -38,7 +38,7 @@ public class Bishop extends Piece{
             rowAddition++;
             colAddition++;
             if(!currentBoard.getSquare(newPos).isOccupied()) {
-                possibleMoves.add(newPos);
+                possibleMoves.add(currentBoard.getSquare(newPos));
             }
         }
         for(int i = rowNo + 1; i<currentBoard.getNumRows(); i++) {
@@ -48,7 +48,7 @@ public class Bishop extends Piece{
             rowAddition++;
             colAddition--;
             if(!currentBoard.getSquare(newPos).isOccupied()) {
-                possibleMoves.add(newPos);
+                possibleMoves.add(currentBoard.getSquare(newPos));
             }
         }
             
@@ -59,7 +59,7 @@ public class Bishop extends Piece{
             rowAddition--;
             colAddition--;
             if(!currentBoard.getSquare(newPos).isOccupied()) {
-                possibleMoves.add(newPos);
+                possibleMoves.add(currentBoard.getSquare(newPos));
             }
     }
         for(int i = rowNo + 1; i<currentBoard.getNumRows(); i++) {
@@ -69,7 +69,7 @@ public class Bishop extends Piece{
             rowAddition--;
             colAddition++;
             if(!currentBoard.getSquare(newPos).isOccupied()) {
-                possibleMoves.add(newPos);
+                possibleMoves.add(currentBoard.getSquare(newPos));
             }
     }
         return possibleMoves;

@@ -15,7 +15,7 @@ import java.util.Set;
 public class King extends Piece {
     
     ChessBoard board;
-    private HashSet<Position> possibleMoves;
+    private HashSet<Square> possibleMoves;
     
     public King() {
         super();
@@ -37,19 +37,19 @@ public class King extends Piece {
         
         Position northPosition = new Position(board, (rowNo + 1), colNo);
         if(!currentBoard.getSquare(northPosition).isOccupied())
-            possibleMoves.add(northPosition);
+            possibleMoves.add(currentBoard.getSquare(northPosition));
         
         Position southPosition = new Position(board, rowNo - 1, colNo);
         if(!currentBoard.getSquare(southPosition).isOccupied())
-            possibleMoves.add(southPosition);
+            possibleMoves.add(currentBoard.getSquare(southPosition));
         
         Position eastPosition = new Position(board, rowNo, colNo + 1);
         if(!currentBoard.getSquare(eastPosition).isOccupied())
-            possibleMoves.add(eastPosition);
+            possibleMoves.add(currentBoard.getSquare(eastPosition));
         
         Position westPosition = new Position(board, rowNo, colNo - 1);
         if(!currentBoard.getSquare(westPosition).isOccupied())
-            possibleMoves.add(westPosition);
+            possibleMoves.add(currentBoard.getSquare(westPosition));
         
         
         
