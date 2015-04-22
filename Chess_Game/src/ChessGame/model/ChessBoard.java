@@ -5,6 +5,7 @@
  */
 package ChessGame.model;
 
+import java.util.Scanner;
 import java.util.Set;
 
 /**
@@ -18,6 +19,8 @@ public class ChessBoard {
     private final int         numRows = 8;
     private final int         numColumns = 8;
     private Square [][] squares;
+    //private Piece piece;
+    private Square square;
     
     public ChessBoard() {
         
@@ -27,10 +30,41 @@ public class ChessBoard {
         squares = new Square[numRows][numColumns];
         buildChessBoard();
         placePieces();
-        
         draw();
+        
+        playGame();
     }
     
+    /**
+     *  Play the game of Chess.
+     */
+    public void playGame(){
+        
+        //Will eventually add scanner here to ask for position movements, just
+        //trying to get a piece to actually move first...
+        
+        Piece p;
+        p = square.getPiece();
+        movePiece(squares[1][0], squares[2][0], p);
+    }
+    
+    public boolean movePiece(Square fromSquare, Square toSquare, Piece piece) {
+        boolean success = false;
+        Set<Square> moves = piece.movesPossible();
+        if(fromSquare.hasPiece(piece) && moves.contains(toSquare)) {
+            piece.setPosition(toSquare.getPosition());
+            fromSquare.removePiece();
+            toSquare.addPiece(piece);
+            success = true;
+        }
+        else {
+            System.out.println("Square does not contain this piece!");
+            return success;
+        }
+        draw();
+        return success;
+    }
+
     /**
      * Gets the number of rows of ChessBoard.
      * 
@@ -216,22 +250,5 @@ public class ChessBoard {
         Piece queen2 = new Queen();
         Position pos16 = new Position(this, 7, 3);
         getSquare(pos16).addPiece(queen2);
-    }
-    
-    public boolean movePiece(Square fromSquare, Square toSquare, Piece piece) {
-        boolean success = false;
-        Set<Square> moves = piece.movesPossible();
-        if(fromSquare.hasPiece(piece) && moves.contains(toSquare)) {
-            piece.setPosition(toSquare.getPosition());
-            fromSquare.removePiece();
-            toSquare.addPiece(piece);
-            success = true;
-        }
-        else {
-            System.out.println("Square does not contain this piece!");
-            return success;
-        }
-        draw();
-        return success;
     }
 }
