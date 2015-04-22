@@ -17,7 +17,7 @@ abstract public class Piece {
     private Position position;
     private boolean alive;
     private Color pieceColour;
-    private Set<Position> possibleMoves;
+    private Set<Square> possibleMoves;
     
     
     /**

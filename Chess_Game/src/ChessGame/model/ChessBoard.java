@@ -34,6 +34,7 @@ public class ChessBoard {
         draw();
         
         playGame();
+        //draw();
     }
     
     /**
@@ -43,10 +44,11 @@ public class ChessBoard {
         
         //Will eventually add scanner here to ask for position movements, just
         //trying to get a piece to actually move first...
-        
+        Position pos = new Position(this, 1, 0);
         Piece p;
-        p = square.getPiece();
+        p = this.getSquare(pos).getPiece();
         movePiece(squares[1][0], squares[2][0], p);
+        draw();
     }
     
     public boolean movePiece(Square fromSquare, Square toSquare, Piece piece) {
@@ -59,10 +61,9 @@ public class ChessBoard {
             success = true;
         }
         else {
-            System.out.println("Square does not contain this piece!");
-            return success;
+            throw new IllegalArgumentException("Square does not contain this piece!");
         }
-        draw();
+        //draw();
         return success;
     }
 
@@ -184,11 +185,13 @@ public class ChessBoard {
             Piece pawn = new Pawn();
             Position pos = new Position(this, 1, i);
             getSquare(pos).addPiece(pawn);
+            pawn.setPosition(pos);
         }
         for(int i = 0; i < 8; i++) {
             Piece pawn = new Pawn();
             Position pos = new Position(this, 6, i);
             getSquare(pos).addPiece(pawn);
+            pawn.setPosition(pos);
         }
         
         Piece rook = new Rook();

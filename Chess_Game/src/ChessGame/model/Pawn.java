@@ -19,7 +19,7 @@ public class Pawn extends Piece {
     
     public Pawn() {
         super();
-
+        
         moves = new HashSet<>();
     }
      
@@ -31,7 +31,7 @@ public class Pawn extends Piece {
     @Override
     public Set movesPossible() {
         moves.clear();
-        Position pos = getPosition();
+        Position pos = this.getPosition();
         int rowNo = pos.getRow();
         int colNo = pos.getColumn();
         Position forward = new Position(pos.getBoard(), rowNo + 1, colNo);
