@@ -5,6 +5,7 @@
  */
 package ChessGame.model;
 
+import java.awt.Color;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -211,13 +212,13 @@ public class ChessBoard {
      */
     private void placePieces() {
         for(int i = 0; i < 8; i++) {
-            Piece pawn = new Pawn();
+            Piece pawn = new Pawn(Color.WHITE);
             Position pos = new Position(this, 1, i);
             getSquare(pos).addPiece(pawn);
             pawn.setPosition(pos);
         }
         for(int i = 0; i < 8; i++) {
-            Piece pawn = new Pawn();
+            Piece pawn = new Pawn(Color.BLACK);
             Position pos = new Position(this, 6, i);
             getSquare(pos).addPiece(pawn);
             pawn.setPosition(pos);

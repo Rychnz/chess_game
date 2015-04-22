@@ -5,6 +5,8 @@
  */
 package ChessGame.model;
 
+import java.awt.Color;
+import static java.awt.Color.WHITE;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,13 +15,14 @@ import java.util.Set;
  * @author Laz Bratton
  */
 public class Pawn extends Piece {
-    
+    Color color;
     Set<Square> moves;
 
     
-    public Pawn() {
+    public Pawn(Color color) {
         super();
         
+        this.color = color;
         moves = new HashSet<>();
     }
      
@@ -34,7 +37,11 @@ public class Pawn extends Piece {
         Position pos = this.getPosition();
         int rowNo = pos.getRow();
         int colNo = pos.getColumn();
-        Position forward = new Position(pos.getBoard(), rowNo + 1, colNo);
+        Position forward;
+        if(color == Color.WHITE)
+            forward = new Position(pos.getBoard(), rowNo + 1, colNo);
+        else
+            forward = new Position(pos.getBoard(), rowNo - 1, colNo);
         Square thisSquare = forward.getBoard().getSquare(forward);
         moves.add(thisSquare);
         return moves;
