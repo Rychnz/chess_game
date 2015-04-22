@@ -26,7 +26,6 @@ public class GameBuilder {
         this.playerOne = playerOne;
         
         newBoard = new ChessBoard();
-        placePieces();
     }
     
     /**
@@ -41,16 +40,7 @@ public class GameBuilder {
         
         newBoard = new ChessBoard();
     }
-    
-    public void placePieces() {
-        for(int i = 0; i < 8; i++) {
-            Piece pawn = new Pawn();
-            Position pos = new Position(newBoard, i, 2);
-            newBoard.getSquare(pos).addPiece(pawn);
-        }
-            
-    }
-    
+      
     public ChessBoard getChessBoard() {
         return newBoard;
     }

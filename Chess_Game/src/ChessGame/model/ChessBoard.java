@@ -10,7 +10,8 @@ import java.util.Set;
 
 /**
  *
- * @author Richard Johnston ID 0795795
+ * @author Richard Johnston ID 0795795 && Lazarus Bratton 
+ * 
  * @version 1.0 - 2015.04: Created
  */
 public class ChessBoard {
