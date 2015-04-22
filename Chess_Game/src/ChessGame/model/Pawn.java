@@ -14,7 +14,7 @@ import java.util.Set;
  */
 public class Pawn extends Piece {
     
-    Set<Position> moves;
+    Set<Square> moves;
 
     
     public Pawn() {
@@ -32,12 +32,11 @@ public class Pawn extends Piece {
     public Set movesPossible() {
         moves.clear();
         Position pos = getPosition();
-        if(pos == null)
-            throw new IllegalArgumentException("Position can't be null");
         int rowNo = pos.getRow();
         int colNo = pos.getColumn();
         Position forward = new Position(pos.getBoard(), rowNo + 1, colNo);
-        moves.add(forward);
+        Square thisSquare = forward.getBoard().getSquare(forward);
+        moves.add(thisSquare);
         return moves;
     }
 }

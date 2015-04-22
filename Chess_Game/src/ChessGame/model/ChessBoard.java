@@ -5,11 +5,6 @@
  */
 package ChessGame.model;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.LinkedList;
-import java.util.Scanner;
-
 /**
  *
  * @author Richard Johnston ID 0795795
@@ -18,8 +13,8 @@ import java.util.Scanner;
 public class ChessBoard {
     
     //Set ChessBoard size to 8x8
-    private int         numRows = 8;
-    private int         numColumns = 8;
+    private final int         numRows = 8;
+    private final int         numColumns = 8;
     private Square [][] squares;
     
     public ChessBoard() {
@@ -142,6 +137,11 @@ public class ChessBoard {
         }
     }
     
+    /**
+     * This will add all the pieces to their starting positions
+     * 
+     * - Laz
+     */
     private void placePieces() {
         for(int i = 0; i < 8; i++) {
             Piece pawn = new Pawn();
@@ -214,5 +214,10 @@ public class ChessBoard {
         Piece queen2 = new Queen();
         Position pos16 = new Position(this, 7, 3);
         getSquare(pos16).addPiece(queen2);
+    }
+    
+    public boolean movePiece(Square square) {
+        boolean success = false;
+        return success;
     }
 }
