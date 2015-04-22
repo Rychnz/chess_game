@@ -42,13 +42,42 @@ public class ChessBoard {
      */
     public void playGame(){
         
-        //Will eventually add scanner here to ask for position movements, just
-        //trying to get a piece to actually move first...
-        Position pos = new Position(this, 1, 0);
-        Piece p;
-        p = this.getSquare(pos).getPiece();
-        movePiece(squares[1][0], squares[2][0], p);
-        draw();
+        int keepPlaying = 0;
+        
+        while(keepPlaying == 0){
+            Scanner lineRead = new Scanner(System.in);
+
+            System.out.println("Enter details of piece to move:");
+            System.out.println("Enter Row number of Piece to move:");
+            String col = lineRead.next();
+            System.out.println("Enter Column number of Piece to move:");
+            String row = lineRead.next();
+            System.out.println("Enter destination Row number:");
+            String newCol = lineRead.next();
+            System.out.println("Enter destination Column number:");
+            String newRow = lineRead.next();
+                
+            int colNo = Integer.parseInt(col);
+            int rowNo = Integer.parseInt(row);
+            int newColNo = Integer.parseInt(newCol);
+            int newRowNo = Integer.parseInt(newRow);
+          
+            Position pos = new Position(this, rowNo, colNo);
+            Piece p;
+            p = this.getSquare(pos).getPiece();
+            movePiece(squares[rowNo][colNo], squares[newRowNo][newColNo], p);
+            draw();
+            
+            System.out.println("Do you want to keep playing? Type Y or N");
+            String cp = lineRead.next();
+            
+            String playOn = "Y";
+                                    
+            if(cp.equals(playOn))keepPlaying = 0;
+            else keepPlaying = 1;
+        } 
+        System.out.println("You have chosen to quit, good bye!");
+        
     }
     
     public boolean movePiece(Square fromSquare, Square toSquare, Piece piece) {
