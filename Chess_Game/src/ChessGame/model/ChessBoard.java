@@ -22,12 +22,12 @@ public class ChessBoard {
     private int         numColumns = 8;
     private Square [][] squares;
     
-    public ChessBoard(int numRows, int numColumns) {
+    public ChessBoard() {
         
-        this.numRows    = numRows;
-        this.numColumns = numColumns;
+        //this.numRows    = numRows;
+        //this.numColumns = numColumns;
         
-        squares = new Square[this.numRows][this.numColumns];
+        squares = new Square[numRows][numColumns];
         buildChessBoard();
         draw();
     }

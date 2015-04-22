@@ -1,6 +1,7 @@
 package ChessGame.main;
 
 import ChessGame.model.ChessBoard;
+import java.util.Scanner;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,12 +14,12 @@ import ChessGame.model.ChessBoard;
  * @author Rich
  */
 public class Main {
-
+    Scanner lineRead = new Scanner(System.in);
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ChessBoard chessboard = new ChessBoard(8, 8);
+        //ChessBoard chessboard = new ChessBoard();
     }
     
 }
